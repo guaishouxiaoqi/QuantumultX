@@ -1,29 +1,7 @@
-![Anurag’s github stats](https://github-readme-stats.vercel.app/api?username=w37fhy&show_icons=true&theme=merko)
-
 ### 说明 :
 
 - 只是搬运和同步更新大佬脚本，不负责维护脚本！
 - 只测试自用脚本，其他大部分脚本未测试可用性.
-- 更新通知[电报频道](https://t.me/w37fhy)
-
-### 视频教程（欢迎订阅 YouTube 频道）：
-
-- [圈 X 视频教程第一期](https://youtu.be/G1oUtOA1J2w)
-- [圈 X 视频教程第二期](https://youtu.be/pLZDK9SACLQ)
-- [圈 X 视频教程第三期](https://youtu.be/kKa26Fj0MJA)
-- [圈 X 视频教程第四期](https://youtu.be/_8_xnEQHGbM)
-
-- [Surge 视频教程第一期](https://youtu.be/V-p0PIC4un4)
-- [Surge 视频教程第二期](https://youtu.be/UibWGDrHgQ8)
-
-- [分流策略科普-上集](https://youtu.be/3htp08CVkCE)
-- [分流策略科普-下集](https://youtu.be/fd6gRfxwrF4)
-
-### 🚀 自用机场及 Netflix 流媒体合租平台推荐：（2022.11.10 更新）
-
-- [🚘 比特云](https://bit.ly/3hqNSW4)
-- [🚄 海豚湾](http://bit.ly/3Eh1aBy)
-- [🚖Netflix 合租](https://nf.run/xCnTPT)
 
 ### Quantumult X 懒人配置：（2022.10.15 更新）
 
@@ -88,12 +66,9 @@
 - [Cookie.sgmodule](https://raw.githubusercontent.com/Tartarus2014/Surge-Script/master/Cookie.sgmodule) 获取 Cookie 远程订阅,仅在 Cookie 获取或失效时启用,不需要时右滑动禁用.
 - [Task.sgmodule](https://raw.githubusercontent.com/Tartarus2014/Surge-Script/master/Task.sgmodule) 定时任务远程配置
 
-<!-- ### 请喝咖啡？谢谢赞赏~
-![感谢赞赏的咖啡哟~](https://raw.githubusercontent.com/w37fhy/QuantumultX/master/zs.png) -->
-
 ## 免责声明：
 
-- w37fhy 发布的 Script 项目中涉及的任何解锁和解密分析脚本仅用于资源共享和学习研究，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
+- 猫猫酱 发布的 Script 项目中涉及的任何解锁和解密分析脚本仅用于资源共享和学习研究，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
 
 - 间接使用脚本的任何用户，包括但不限于建立 VPS 或在某些行为违反国家/地区法律或相关法规的情况下进行传播, w37fhy 对于由此引起的任何隐私泄漏或其他后果概不负责.
 
@@ -101,7 +76,7 @@
 
 - 如果任何单位或个人认为该项目的脚本可能涉嫌侵犯其权利，则应及时通知并提供身份证明，所有权证明，我们将在收到认证文件后删除相关脚本.
 
-- w37fhy 对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害.
+- 猫猫酱 对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害.
 
 - 您必须在下载后的 24 小时内从计算机或手机中完全删除以上内容.
 
