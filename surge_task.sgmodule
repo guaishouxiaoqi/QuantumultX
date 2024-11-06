@@ -1,5 +1,5 @@
 #!name=定时任务
-#!desc=签到、提醒等定时任务  @w37fhy
+#!desc=签到、提醒等定时任务  @maomao
 
 [MITM]
 hostname = trade-acs.m.taobao.com, api.m.jd.com, *.bilibili.com, music.163.com, act.10010.com, m.client.10010.com, wapside.189.cn:9001, ifac*.iqiyi.com, nebula.kuaishou.com, mp.weixin.qq.com, ms.jr.jd.com
