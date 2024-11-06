@@ -1,5 +1,8 @@
 ### 说明 :
 
+# QuantumultX 懒人配置 DIY 版 【作者】猫猫酱
+
+- 本项目源自于 w37fhy (https://github.com/w37fhy/QuantumultX)
 - 只是搬运和同步更新大佬脚本，不负责维护脚本！
 - 只测试自用脚本，其他大部分脚本未测试可用性.
 
