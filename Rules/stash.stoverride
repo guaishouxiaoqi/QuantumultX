@@ -1,0 +1,39 @@
+rules:
+  # 中国常见域名直连
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-SUFFIX,apple.cn,DIRECT
+  - DOMAIN-SUFFIX,icloud.cn,DIRECT
+  - DOMAIN-SUFFIX,mi.com,DIRECT
+  
+  # 强制某些国外服务走代理
+  - DOMAIN-SUFFIX,openai.com,PROXY
+  - DOMAIN-SUFFIX,chatgpt.com,PROXY
+  - DOMAIN-SUFFIX,anthropic.com,PROXY
+  - DOMAIN-SUFFIX,copilot.microsoft.com,PROXY
+  # 去广告
+  - DOMAIN-SUFFIX,ads.google.com,REJECT
+  - DOMAIN-SUFFIX,doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,adservice.google.com,REJECT
+  - DOMAIN-SUFFIX,crashlytics.com,REJECT
+  - DOMAIN-SUFFIX,appsflyer.com,REJECT
+  - DOMAIN-SUFFIX,adjust.com,REJECT
+  
+  # 最终规则（如果原配置是 DIRECT，可改为 PROXY）
+  - FINAL,PROXY
+
+#HTTP Rewrite 去广告/解锁示例
+http:
+  url-rewrite:
+    # 常见视频平台去开屏广告（正则匹配）
+    - ^https?://.*\.doubleclick\.net.* - reject
+    - ^https?://.*\.googlesyndication\.com.* - reject
+    
+    # 示例：Bilibili 去广告（实际需根据最新接口调整）
+    - ^https?://app.bilibili.com/x/v2/splash.* - reject-200
+    
+    # 示例：YouTube 解锁 Premium（需配合特定节点）
+    - ^https?://youtubei.googleapis.com - header-replace Client-Type YouTube
+    
+  header-rewrite:
+    # 伪装 User-Agent（部分服务需要）
+    - .* request-replace User-Agent Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X)
