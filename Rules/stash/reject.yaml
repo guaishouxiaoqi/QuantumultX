@@ -1,0 +1,6 @@
+payload:
+  # 常见广告
+  - DOMAIN-SUFFIX,ads.google.com
+  - DOMAIN-SUFFIX,adservice.google.com
+  - DOMAIN-SUFFIX,googlesyndication.com
+  - DOMAIN-SUFFIX,doubleclick.net
