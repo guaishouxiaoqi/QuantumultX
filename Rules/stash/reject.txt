@@ -1,0 +1,6 @@
+# ==========================
+# 广告 / 拦截
+# ==========================
+DOMAIN,adv.c,REJECT
+DOMAIN-SUFFIX,ads.google.com,REJECT
+DOMAIN-SUFFIX,doubleclick.net,REJECT

@@ -1,6 +1,0 @@
-rules:
-  - RULE-SET,reject,REJECT
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,proxy,Proxy
-  - GEOIP,CN,DIRECT
-  - MATCH,Proxy

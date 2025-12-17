@@ -1,0 +1,16 @@
+
+# ==========================
+# Apple 服务直连
+# ==========================
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,icloud.com,DIRECT
+DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+DOMAIN-SUFFIX,me.com,DIRECT
+
+
+# ==========================
+# 内网 / 局域网直连
+# ==========================
+DOMAIN-SUFFIX,local,DIRECT
+DOMAIN-SUFFIX,lan,DIRECT
+DOMAIN-SUFFIX,home.arpa,DIRECT

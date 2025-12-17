@@ -1,0 +1,10 @@
+
+# ==========================
+# 代理（Google / GitHub / OpenAI）
+# ==========================
+DOMAIN-SUFFIX,google.com,Proxy
+DOMAIN-SUFFIX,googleapis.com,Proxy
+DOMAIN-SUFFIX,googleusercontent.com,Proxy
+DOMAIN-SUFFIX,github.com,Proxy
+DOMAIN-SUFFIX,openai.com,Proxy
+DOMAIN-SUFFIX,copilot.microsoft.com,Proxy
