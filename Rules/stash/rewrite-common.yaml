@@ -1,36 +1,16 @@
-name: Copilot 强制走代理（高优先级修复版）
-version: 1.0.2
-desc: 高优先级强制 Copilot 全流量走代理，绕过主规则干扰
+name: Copilot 强制走代理
+desc: 强制 Copilot 全流量走代理，绕过主规则干扰
 
-rewrite:
-  rules:
-    # 使用 DOMAIN（精确匹配）+ 高优先级，确保覆盖 microsoft.com 的 DIRECT 规则
-    - hostname: copilot.microsoft.com
-      type: DOMAIN
-      policy: PROXY
-      enabled: true
-
-    - hostname: "*.copilot.microsoft.com"
-      type: DOMAIN-SUFFIX  
-      policy: PROXY
-      enabled: true
-
-    - hostname: edgeservices.bing.com
-      type: DOMAIN
-      policy: PROXY
-      enabled: true
-
-    - hostname: "*.edgeservices.bing.com"
-      type: DOMAIN-SUFFIX
-      policy: PROXY
-      enabled: true
-
-    # - hostname: www.bing.com
-    #   type: DOMAIN
-    #   policy: PROXY
-    #   enabled: true
-
-    # - hostname: bing.com
-    #   type: DOMAIN
-    #   policy: PROXY
-    #   enabled: true
+rules:
+  # 精确匹配 Copilot 域名，确保覆盖 microsoft.com 的 DIRECT 规则
+  - DOMAIN,copilot.microsoft.com,PROXY
+  - DOMAIN-SUFFIX,copilot.microsoft.com,PROXY
+  
+  # Copilot 相关服务域名
+  - DOMAIN,edgeservices.bing.com,PROXY
+  - DOMAIN-SUFFIX,edgeservices.bing.com,PROXY
+  
+  # Bing 搜索相关（Copilot 依赖）
+  - DOMAIN,www.bing.com,PROXY
+  - DOMAIN,bing.com,PROXY
+  - DOMAIN-SUFFIX,bing.com,PROXY
