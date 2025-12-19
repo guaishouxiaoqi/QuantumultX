@@ -1,36 +1,36 @@
-name: stash/rewrite-common
-version: 1.0.1
-desc: 通用广告拦截覆写，包含 proxy / direct / reject 分流
+name: Copilot 强制走代理（高优先级修复版）
+version: 1.0.2
+desc: 高优先级强制 Copilot 全流量走代理，绕过主规则干扰
 
 rewrite:
-  # ======================
-  # 规则分流（核心）
-  # ======================
   rules:
-    # ---------- 走代理 ----------
-    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*copilot\.microsoft\.com.*
-      policy: PROXY
-      enabled: true
-    # -----------------------------
-    # Copilot Microsoft 强制走代理
-    # -----------------------------
+    # 使用 DOMAIN（精确匹配）+ 高优先级，确保覆盖 microsoft.com 的 DIRECT 规则
     - hostname: copilot.microsoft.com
+      type: DOMAIN
       policy: PROXY
       enabled: true
 
-    # ---------- 走直连 ----------
-    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*bing\.com\/
-      policy: DIRECT
+    - hostname: "*.copilot.microsoft.com"
+      type: DOMAIN-SUFFIX  
+      policy: PROXY
       enabled: true
 
-    # ----------直接拒绝 ----------
-    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*ad\.cn\/
-      policy: REJECT
-      enabled: true
+    # - hostname: edgeservices.bing.com
+    #   type: DOMAIN
+    #   policy: PROXY
+    #   enabled: true
 
-    # ======================
-    # 常见广告域名拦截（示例）
-    # ======================
-    # - match: ^https?:\/\/.*(ads|adservice|analytics|tracking|tracker).*\/
-    #   policy: REJECT
+    # - hostname: "*.edgeservices.bing.com"
+    #   type: DOMAIN-SUFFIX
+    #   policy: PROXY
+    #   enabled: true
+
+    # - hostname: www.bing.com
+    #   type: DOMAIN
+    #   policy: PROXY
+    #   enabled: true
+
+    # - hostname: bing.com
+    #   type: DOMAIN
+    #   policy: PROXY
     #   enabled: true
