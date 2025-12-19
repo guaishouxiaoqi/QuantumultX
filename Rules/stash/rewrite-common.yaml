@@ -1,16 +1,80 @@
-name: Copilot 强制走代理
-desc: 强制 Copilot 全流量走代理，绕过主规则干扰
+name: 常用规则合集
+desc: |
+  Copilot 代理 + 广告拦截
+  版本: v1.0.0
+  更新日期: 2025-12-19
+  说明: 包含 Copilot 强制走代理规则和常见广告拦截规则
 
 rules:
-  # 精确匹配 Copilot 域名，确保覆盖 microsoft.com 的 DIRECT 规则
+  # ======= Copilot 强制走代理 =======
   - DOMAIN,copilot.microsoft.com,PROXY
   - DOMAIN-SUFFIX,copilot.microsoft.com,PROXY
-  
-  # Copilot 相关服务域名
   - DOMAIN,edgeservices.bing.com,PROXY
   - DOMAIN-SUFFIX,edgeservices.bing.com,PROXY
-  
-  # Bing 搜索相关（Copilot 依赖）
   - DOMAIN,www.bing.com,PROXY
   - DOMAIN,bing.com,PROXY
   - DOMAIN-SUFFIX,bing.com,PROXY
+  
+  # ======= 广告拦截 =======
+  # 常见广告联盟
+  - DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,ad.doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,googleadservices.com,REJECT
+  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
+  - DOMAIN-SUFFIX,googletagservices.com,REJECT
+  - DOMAIN-SUFFIX,googletagmanager.com,REJECT
+  
+  # 国内广告联盟
+  - DOMAIN-SUFFIX,tanx.com,REJECT
+  - DOMAIN-SUFFIX,mmstat.com,REJECT
+  - DOMAIN-SUFFIX,cbjs.baidu.com,REJECT
+  - DOMAIN-SUFFIX,cpro.baidu.com,REJECT
+  - DOMAIN-SUFFIX,pos.baidu.com,REJECT
+  - DOMAIN-SUFFIX,adsame.com,REJECT
+  - DOMAIN-SUFFIX,adsmogo.com,REJECT
+  - DOMAIN-SUFFIX,adsrvmedia.net,REJECT
+  - DOMAIN-SUFFIX,adview.cn,REJECT
+  - DOMAIN-SUFFIX,domob.cn,REJECT
+  - DOMAIN-SUFFIX,inmobi.com,REJECT
+  - DOMAIN-SUFFIX,mobads.baidu.com,REJECT
+  - DOMAIN-SUFFIX,umeng.com,REJECT
+  - DOMAIN-SUFFIX,umengcloud.com,REJECT
+  
+  # 常见追踪和统计
+  - DOMAIN-SUFFIX,adjust.com,REJECT
+  - DOMAIN-SUFFIX,appsflyer.com,REJECT
+  - DOMAIN-SUFFIX,bugly.qq.com,REJECT
+  - DOMAIN-SUFFIX,flurry.com,REJECT
+  - DOMAIN-SUFFIX,scorecardresearch.com,REJECT
+  
+  # App 内广告
+  - DOMAIN-SUFFIX,api.ads.unity3d.com,REJECT
+  - DOMAIN-SUFFIX,unityads.unity3d.com,REJECT
+  - DOMAIN-SUFFIX,app-measurement.com,REJECT
+  - DOMAIN-SUFFIX,vungle.com,REJECT
+  - DOMAIN-SUFFIX,chartboost.com,REJECT
+  
+  # 字节跳动广告
+  - DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
+  - DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+  - DOMAIN-SUFFIX,ad.toutiao.com,REJECT
+  
+  # 腾讯广告
+  - DOMAIN-SUFFIX,gdt.qq.com,REJECT
+  - DOMAIN-SUFFIX,gdtimg.com,REJECT
+  - DOMAIN-SUFFIX,mi.gdt.qq.com,REJECT
+  - DOMAIN-SUFFIX,pgdt.gtimg.cn,REJECT
+  
+  # 阿里广告
+  - DOMAIN-SUFFIX,alimama.cn,REJECT
+  - DOMAIN-SUFFIX,alimama.com,REJECT
+  - DOMAIN-SUFFIX,aligames.com,REJECT
+  - DOMAIN-SUFFIX,adash.m.taobao.com,REJECT
+  
+  # 知名应用广告
+  - DOMAIN-SUFFIX,zhihu-analytics.zhihu.com,REJECT
+  - DOMAIN-SUFFIX,sugar.zhihu.com,REJECT
+  - DOMAIN-SUFFIX,applog.uc.cn,REJECT
+  - DOMAIN-SUFFIX,track.uc.cn,REJECT
+  - DOMAIN-SUFFIX,m.adx.weibo.com,REJECT
+  - DOMAIN-SUFFIX,sdkapp.uve.weibo.com,REJECT
