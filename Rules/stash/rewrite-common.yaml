@@ -11,6 +11,12 @@ rewrite:
     - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*copilot\.microsoft\.com.*
       policy: PROXY
       enabled: true
+    # -----------------------------
+    # Copilot Microsoft 强制走代理
+    # -----------------------------
+    - hostname: copilot.microsoft.com
+      policy: PROXY
+      enabled: true
 
     # ---------- 走直连 ----------
     - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*bing\.com\/
