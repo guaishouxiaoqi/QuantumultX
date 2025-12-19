@@ -1,0 +1,30 @@
+name: stash/rewrite-common
+version: 1.0.0
+desc: 通用广告拦截覆写，包含 proxy / direct / reject 分流
+
+rewrite:
+  # ======================
+  # 规则分流（核心）
+  # ======================
+  rules:
+    # ---------- 走代理 ----------
+    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*copilot\.microsoft\.com\/
+      policy: PROXY
+      enabled: true
+
+    # ---------- 走直连 ----------
+    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*bing\.com\/
+      policy: DIRECT
+      enabled: true
+
+    # ----------直接拒绝 ----------
+    - match: ^https?:\/\/([a-zA-Z0-9-]+\.)*ad\.cn\/
+      policy: REJECT
+      enabled: true
+
+    # ======================
+    # 常见广告域名拦截（示例）
+    # ======================
+    # - match: ^https?:\/\/.*(ads|adservice|analytics|tracking|tracker).*\/
+    #   policy: REJECT
+    #   enabled: true

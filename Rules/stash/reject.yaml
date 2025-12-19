@@ -1,7 +1,0 @@
-# ==========================
-# 广告 / 拦截
-# ==========================
-payload:
-- DOMAIN,adv.c,REJECT
-- DOMAIN-SUFFIX,ads.google.com,REJECT
-- DOMAIN-SUFFIX,doubleclick.net,REJECT
