@@ -15,15 +15,15 @@ rewrite:
       policy: PROXY
       enabled: true
 
-    # - hostname: edgeservices.bing.com
-    #   type: DOMAIN
-    #   policy: PROXY
-    #   enabled: true
+    - hostname: edgeservices.bing.com
+      type: DOMAIN
+      policy: PROXY
+      enabled: true
 
-    # - hostname: "*.edgeservices.bing.com"
-    #   type: DOMAIN-SUFFIX
-    #   policy: PROXY
-    #   enabled: true
+    - hostname: "*.edgeservices.bing.com"
+      type: DOMAIN-SUFFIX
+      policy: PROXY
+      enabled: true
 
     # - hostname: www.bing.com
     #   type: DOMAIN
