@@ -1,7 +1,7 @@
 name: 常用规则合集
 desc: |
   Copilot 代理 + 广告拦截
-  版本: v1.0.0
+  版本: v1.0.1
   更新日期: 2025-12-21
   说明: 包含 Copilot 强制走代理规则和常见广告拦截规则
 
@@ -14,14 +14,6 @@ rules:
   - DOMAIN,www.bing.com,PROXY
   - DOMAIN,bing.com,PROXY
   - DOMAIN-SUFFIX,bing.com,PROXY
-  - DOMAIN,apple-relay.apple.com,PROXY
-  - DOMAIN,apple-relay.fastly-edge.com,PROXY
-  - DOMAIN,apple-relay.cloudflare.com,PROXY
-  - DOMAIN,gateway.icloud.com,PROXY
-  - DOMAIN,guzzoni.apple.com,PROXY
-  - DOMAIN,cp4.cloudflare.com,PROXY
-  - DOMAIN,gspe1-ssl.ls.apple.com,PROXY
-  - DOMAIN,apps.mzstatic.com,PROXY
   - DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
   - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
   - DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
@@ -30,6 +22,8 @@ rules:
   - DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
   - DOMAIN-SUFFIX,apps.mzstatic.com,PROXY
+  - DOMAIN-SUFFIX,*.smoot.apple.com,PROXY
+  - DOMAIN-SUFFIX,quzzoni.apple.com,PROXY
   
   # ======= 广告拦截 =======
   # 常见广告联盟
