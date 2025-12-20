@@ -14,6 +14,14 @@ rules:
   - DOMAIN,www.bing.com,PROXY
   - DOMAIN,bing.com,PROXY
   - DOMAIN-SUFFIX,bing.com,PROXY
+  - apple-relay.apple.com,PROXY
+  - apple-relay.fastly-edge.com,PROXY
+  - apple-relay.cloudflare.com,PROXY
+  - gateway.icloud.com,PROXY
+  - guzzoni.apple.com,PROXY
+  - cp4.cloudflare.com,PROXY
+  - gspe1-ssl.ls.apple.com,PROXY
+  - apps.mzstatic.com,PROXY
   
   # ======= 广告拦截 =======
   # 常见广告联盟
