@@ -14,14 +14,22 @@ rules:
   - DOMAIN,www.bing.com,PROXY
   - DOMAIN,bing.com,PROXY
   - DOMAIN-SUFFIX,bing.com,PROXY
-  - apple-relay.apple.com,PROXY
-  - apple-relay.fastly-edge.com,PROXY
-  - apple-relay.cloudflare.com,PROXY
-  - gateway.icloud.com,PROXY
-  - guzzoni.apple.com,PROXY
-  - cp4.cloudflare.com,PROXY
-  - gspe1-ssl.ls.apple.com,PROXY
-  - apps.mzstatic.com,PROXY
+  - DOMAIN,apple-relay.apple.com,PROXY
+  - DOMAIN,apple-relay.fastly-edge.com,PROXY
+  - DOMAIN,apple-relay.cloudflare.com,PROXY
+  - DOMAIN,gateway.icloud.com,PROXY
+  - DOMAIN,guzzoni.apple.com,PROXY
+  - DOMAIN,cp4.cloudflare.com,PROXY
+  - DOMAIN,gspe1-ssl.ls.apple.com,PROXY
+  - DOMAIN,apps.mzstatic.com,PROXY
+  - DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
+  - DOMAIN-SUFFIX,gateway.icloud.com,PROXY
+  - DOMAIN-SUFFIX,guzzoni.apple.com,PROXY
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
+  - DOMAIN-SUFFIX,apps.mzstatic.com,PROXY
   
   # ======= 广告拦截 =======
   # 常见广告联盟
