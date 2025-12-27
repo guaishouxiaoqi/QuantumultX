@@ -16,7 +16,7 @@ rules:
   - DOMAIN-SUFFIX,bing.com,良心云
   # ======= apple intelligence 访问chatgpt 强制走代理 =======
   - DOMAIN-SUFFIX,*.smoot.apple.com,良心云
-  - DOMAIN-SUFFIX,apple.com,良心云
+  # - DOMAIN-SUFFIX,apple.com,良心云
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,良心云
   - DOMAIN-SUFFIX,cp4.cloudflare.com,良心云
   - DOMAIN-SUFFIX,quzzoni.apple.com,良心云
@@ -27,12 +27,12 @@ rules:
   - DOMAIN-SUFFIX,guzzoni.apple.com,良心云
   - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,良心云
   - DOMAIN-SUFFIX,gateway.icloud.com,良心云
-  # - DOMAIN-SUFFIX,gateway.fe2.apple-dns.net,PROXY
-  # - DOMAIN-SUFFIX,seed.siri.apple.com,PROXY
-  # - DOMAIN-SUFFIX,v.aaplimg.com,PROXY
-  # - DOMAIN-SUFFIX,seed-siri-apple-com.v.aaplimg.com,PROXY
-  # - DOMAIN-SUFFIX,smoot-searchv2-aapse1c.v.aaplimg.com,PROXY
-  # - DOMAIN-SUFFIX,apps.mzstatic.com,PROXY
+  # - DOMAIN-SUFFIX,gateway.fe2.apple-dns.net,良心云
+  # - DOMAIN-SUFFIX,seed.siri.apple.com,良心云
+  # - DOMAIN-SUFFIX,v.aaplimg.com,良心云
+  # - DOMAIN-SUFFIX,seed-siri-apple-com.v.aaplimg.com,良心云
+  # - DOMAIN-SUFFIX,smoot-searchv2-aapse1c.v.aaplimg.com,良心云
+  # - DOMAIN-SUFFIX,apps.mzstatic.com,良心云
   
   # ======= 广告拦截 =======
   # 常见广告联盟
