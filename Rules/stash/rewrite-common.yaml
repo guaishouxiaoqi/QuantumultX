@@ -7,26 +7,26 @@ desc: |
 
 rules:
   # ======= Copilot 强制走代理 =======
-  - DOMAIN,copilot.microsoft.com,PROXY
-  - DOMAIN-SUFFIX,copilot.microsoft.com,PROXY
-  - DOMAIN,edgeservices.bing.com,PROXY
-  - DOMAIN-SUFFIX,edgeservices.bing.com,PROXY
-  - DOMAIN,www.bing.com,PROXY
-  - DOMAIN,bing.com,PROXY
-  - DOMAIN-SUFFIX,bing.com,PROXY
+  - DOMAIN,copilot.microsoft.com,良心云
+  - DOMAIN-SUFFIX,copilot.microsoft.com,良心云
+  - DOMAIN,edgeservices.bing.com,良心云
+  - DOMAIN-SUFFIX,edgeservices.bing.com,良心云
+  - DOMAIN,www.bing.com,良心云
+  - DOMAIN,bing.com,良心云
+  - DOMAIN-SUFFIX,bing.com,良心云
   # ======= apple intelligence 访问chatgpt 强制走代理 =======
-  - DOMAIN-SUFFIX,*.smoot.apple.com,PROXY
-  - DOMAIN-SUFFIX,apple.com,PROXY
-  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
-  - DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
-  - DOMAIN-SUFFIX,quzzoni.apple.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
-  - DOMAIN-SUFFIX,smoot.apple.com,PROXY
-  - DOMAIN-SUFFIX,guzzoni.apple.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,PROXY
-  - DOMAIN-SUFFIX,gateway.icloud.com,PROXY
+  - DOMAIN-SUFFIX,*.smoot.apple.com,良心云
+  - DOMAIN-SUFFIX,apple.com,良心云
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,良心云
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,良心云
+  - DOMAIN-SUFFIX,quzzoni.apple.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.apple.com,良心云
+  - DOMAIN-SUFFIX,smoot.apple.com,良心云
+  - DOMAIN-SUFFIX,guzzoni.apple.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,良心云
+  - DOMAIN-SUFFIX,gateway.icloud.com,良心云
   # - DOMAIN-SUFFIX,gateway.fe2.apple-dns.net,PROXY
   # - DOMAIN-SUFFIX,seed.siri.apple.com,PROXY
   # - DOMAIN-SUFFIX,v.aaplimg.com,PROXY
