@@ -16,15 +16,17 @@ rules:
   - DOMAIN-SUFFIX,bing.com,PROXY
   # ======= apple intelligence 访问chatgpt 强制走代理 =======
   - DOMAIN-SUFFIX,*.smoot.apple.com,PROXY
-  - DOMAIN-SUFFIX,smoot.apple.com,PROXY
-  - DOMAIN-SUFFIX,guzzoni.apple.com,PROXY
+  - DOMAIN-SUFFIX,apple.com,PROXY
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,PROXY
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
+  - DOMAIN-SUFFIX,quzzoni.apple.com,PROXY
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
   - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
   - DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
-  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
-  - DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
-  # - DOMAIN-SUFFIX,gateway.icloud.com,PROXY
+  - DOMAIN-SUFFIX,smoot.apple.com,PROXY
+  - DOMAIN-SUFFIX,guzzoni.apple.com,PROXY
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,PROXY
+  - DOMAIN-SUFFIX,gateway.icloud.com,PROXY
   # - DOMAIN-SUFFIX,gateway.fe2.apple-dns.net,PROXY
   # - DOMAIN-SUFFIX,seed.siri.apple.com,PROXY
   # - DOMAIN-SUFFIX,v.aaplimg.com,PROXY
