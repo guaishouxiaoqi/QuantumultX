@@ -7,12 +7,8 @@ desc: |
 
 rules:
   # ======= Copilot 强制走代理 =======
-  - DOMAIN,copilot.microsoft.com,良心云
   - DOMAIN-SUFFIX,copilot.microsoft.com,良心云
-  - DOMAIN,edgeservices.bing.com,良心云
   - DOMAIN-SUFFIX,edgeservices.bing.com,良心云
-  - DOMAIN,www.bing.com,良心云
-  - DOMAIN,bing.com,良心云
   - DOMAIN-SUFFIX,bing.com,良心云
   # ======= apple intelligence 访问chatgpt 强制走代理 =======
   - DOMAIN-SUFFIX,*.smoot.apple.com,良心云
