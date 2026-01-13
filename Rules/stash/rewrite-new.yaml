@@ -6,22 +6,27 @@ desc: |
   说明: 自动筛选美国节点并进行可用性检测，防止切换梯子后节点超时。
 
 proxy-groups:
-  # 入口组：你可以手动选，也可以让它自动选
+  # 入口组：手动选择或自动优选
   - name: 手动节点选择
     type: select
+    # 使用 filter 筛选所有美国节点，并从“所有节点”或“PROXY”组中提取
+    # 这里的正则放在 filter 字段里，proxies 填写你的主策略组名
+    filter: "(?i)美国|US|United States"
     proxies:
-      - 🤖 AI 自动优选  # 默认选中这个，实现自动化
-      - /.*(美国|US|United States).*/ # 同时也展开所有美国节点，方便手动切换
+      - 🤖 AI 自动优选
+      - DIRECT
+      # 如果你的订阅里主分组叫“节点选择”或“PROXY”，请确保下方匹配到它
+      - /^(节点选择|良心云|手动配置|泡泡Dog|Proxy|节点选择|代理)$/
 
-  # 检测组：专门负责剔除超时的美国节点
+  # 检测组：剔除超时节点
   - name: 🤖 AI 自动优选
     type: url-test
-    # 使用 Google 或 OpenAI 测速，确保节点真正能访问外网
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+    filter: "(?i)美国|US|United States"
     proxies:
-      - /.*(美国|US|United States).*/
+      - /^(节点选择|良心云|手动配置|泡泡Dog|Proxy|节点选择|代理)$/
 
 rules:
   # --- Copilot & Bing ---
