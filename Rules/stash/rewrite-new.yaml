@@ -11,9 +11,11 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # 如果你的节点来自订阅，请将下面的 include-all-proxies: true 替换为 use: [你的订阅名]
+    # 保持 true 以兼容所有订阅
     include-all-proxies: true
-    # 简化正则，只写包含逻辑
+    # 极其简化的正则：只要包含关键词就抓取。
+    # 删掉 (?!DIRECT) 等复杂断言，因为 Stash 默认不会把 DIRECT 塞进 include-all 里的代理列表，
+    # 除非正则匹配结果为空导致系统补位。
     filter: "(?i)美国|US|United States|🇺🇸"
 
   # 2. 手动选择组
@@ -22,8 +24,8 @@ proxy-groups:
     proxies:
       - 🤖 AI 自动优选
       - DIRECT
-    # 此时不要在手动组里再次使用 include-all-proxies 和 filter，
-    # 避免嵌套筛选逻辑导致的索引冲突。
+    include-all-proxies: true
+    filter: "(?i)美国|US|United States|🇺🇸"
 
 rules:
   # 规则部分保持不变
