@@ -5,37 +5,57 @@ desc: |
   更新日期: 2025-12-21
   说明: 包含 Copilot, apple intelligence访问chatgpt等 强制走代理规则和常见广告拦截规则
 
-rule-sets:
-  - name: AI-Force-Proxy
-    type: local
-    rules:
-      - DOMAIN-SUFFIX,copilot.microsoft.com
-      - DOMAIN-SUFFIX,edgeservices.bing.com
-      - DOMAIN-SUFFIX,bing.com
-      - DOMAIN-SUFFIX,*.smoot.apple.com
-      - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
-      - DOMAIN-SUFFIX,cp4.cloudflare.com
-      - DOMAIN-SUFFIX,quzzoni.apple.com
-      - DOMAIN-SUFFIX,apple-relay.cloudflare.com
-      - DOMAIN-SUFFIX,apple-relay.fastly-edge.com
-      - DOMAIN-SUFFIX,apple-relay.apple.com
-      - DOMAIN-SUFFIX,smoot.apple.com
-      - DOMAIN-SUFFIX,guzzoni.apple.com
-      - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
-      - DOMAIN-SUFFIX,gateway.icloud.com
-
-proxy-groups:
-  - name: AIProxy
-    type: select
-    include-all: true  # 关键：自动包含当前配置文件的所有 proxies（节点）
-
 rules:
-  - RULE-SET,AI-Force-Proxy,AIProxy
+  # 默认
+  # Copilot
+  - DOMAIN-SUFFIX,copilot.microsoft.com,节点选择
+  - DOMAIN-SUFFIX,edgeservices.bing.com,节点选择
+  - DOMAIN-SUFFIX,bing.com,节点选择
+  # apple intelligence
+  - DOMAIN-SUFFIX,*.smoot.apple.com,节点选择
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,节点选择
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,节点选择
+  - DOMAIN-SUFFIX,quzzoni.apple.com,节点选择
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,节点选择
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,节点选择
+  - DOMAIN-SUFFIX,apple-relay.apple.com,节点选择
+  - DOMAIN-SUFFIX,smoot.apple.com,节点选择
+  - DOMAIN-SUFFIX,guzzoni.apple.com,节点选择
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,节点选择
+  - DOMAIN-SUFFIX,gateway.icloud.com,节点选择
 
-# rules:
-#   - RULE-SET,AI-Force-Proxy,节点选择
-#   - RULE-SET,AI-Force-Proxy,手动切换
-#   - RULE-SET,AI-Force-Proxy,泡泡Dog
-#   - RULE-SET,AI-Force-Proxy,良心云
-# rules:
-#   - RULE-SET,AI-Force-Proxy,"^(?i).*(节点|选择|手动|切换|dog|狗|proxy|主|auto|select|manual|良心|优质|高速|主力).*"
+  # 良心
+  # Copilot
+  - DOMAIN-SUFFIX,copilot.microsoft.com,良心云
+  - DOMAIN-SUFFIX,edgeservices.bing.com,良心云
+  - DOMAIN-SUFFIX,bing.com,良心云
+  # apple intelligence
+  - DOMAIN-SUFFIX,*.smoot.apple.com,良心云
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,良心云
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,良心云
+  - DOMAIN-SUFFIX,quzzoni.apple.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.apple.com,良心云
+  - DOMAIN-SUFFIX,smoot.apple.com,良心云
+  - DOMAIN-SUFFIX,guzzoni.apple.com,良心云
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,良心云
+  - DOMAIN-SUFFIX,gateway.icloud.com,良心云
+
+  # 狗子
+  # Copilot
+  - DOMAIN-SUFFIX,copilot.microsoft.com,泡泡Dog
+  - DOMAIN-SUFFIX,edgeservices.bing.com,泡泡Dog
+  - DOMAIN-SUFFIX,bing.com,泡泡Dog
+  # apple intelligence
+  - DOMAIN-SUFFIX,*.smoot.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,泡泡Dog
+  - DOMAIN-SUFFIX,quzzoni.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,泡泡Dog
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,泡泡Dog
+  - DOMAIN-SUFFIX,apple-relay.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,smoot.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,guzzoni.apple.com,泡泡Dog
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,泡泡Dog
+  - DOMAIN-SUFFIX,gateway.icloud.com,泡泡Dog
