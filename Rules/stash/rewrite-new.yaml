@@ -6,26 +6,24 @@ desc: |
   说明: 自动筛选美国节点并进行可用性检测，防止切换梯子后节点超时。
 
 proxy-groups:
-  # 【第一层】入口组：你在 Stash 界面上操作的组
-  - name: 手动节点选择
-    type: select
-    # 作用：从全局节点中过滤出所有美国节点显示在下方，方便你手动点选
-    filter: "(?i)美国|US|United States"
-    proxies:
-      - 🤖 AI 自动优选  # 优先级 1：自动挑选最快的
-      - DIRECT         # 优先级 2：直连备用
-      - GLOBAL         # 优先级 3：由于有 filter，这里会展开所有美国节点
-
-  # 【第二层】检测组：负责剔除那些超时的、不可用的美国节点
+  # 1. 这是一个“全量美国节点”组
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # 作用：只让美国节点进入考试名单
-    filter: "(?i)美国|US|United States"
+    # 核心：直接使用正则匹配节点名，不通过 proxies 组过滤
+    # 在 proxies 里直接写正则表达式，Stash 会从所有已加载节点中匹配
     proxies:
-      - GLOBAL         # 直接引用系统全局池，绕过所有复杂的策略组命名
+      - /^(?!.*(剩余流量|套餐到期|到期时间)).*(美国|US|United States)/
+
+  # 2. 这是一个入口组
+  - name: 手动节点选择
+    type: select
+    proxies:
+      - 🤖 AI 自动优选
+      - DIRECT
+      - /^(?!.*(剩余流量|套餐到期|到期时间)).*(美国|US|United States)/
 
 rules:
   # 将所有 Copilot 和 Apple Intelligence 的规则指向“手动节点选择”
