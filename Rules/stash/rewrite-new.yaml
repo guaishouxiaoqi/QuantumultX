@@ -25,7 +25,4 @@ rule-sets:
       - DOMAIN-SUFFIX,gateway.icloud.com
 
 rules:
-  - RULE-SET,AI-Force-Proxy,节点选择
-  - RULE-SET,AI-Force-Proxy,手动切换
-  - RULE-SET,AI-Force-Proxy,泡泡Dog
-  - RULE-SET,AI-Force-Proxy,良心云
+  - RULE-SET,AI-Force-Proxy,"^(?i).*(节点|选择|手动|切换|dog|狗|proxy|主|auto|select|manual|良心|优质|高速|主力).*"
