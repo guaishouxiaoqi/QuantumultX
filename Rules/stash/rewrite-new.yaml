@@ -4,27 +4,44 @@ desc: |
   版本: v1.0.7
   说明: 使用 include-all-proxies 彻底解决分组找不到的问题。
 
+# proxy-groups:
+#   # 1. 检测组：负责自动选出可用的美国节点
+#   - name: 🤖 AI 自动优选
+#     type: url-test
+#     url: http://www.gstatic.com/generate_204
+#     interval: 300
+#     tolerance: 50
+#     # 关键属性：强制包含所有订阅里的节点，不看任何分组名
+#     include-all-proxies: true
+#     # 关键属性：从所有节点中过滤出美国节点
+#     filter: "(?i)美国|US|United States"
+
+#   # 2. 入口组：手动选择或自动优选
+#   - name: 手动节点选择
+#     type: select
+#     proxies:
+#       - 🤖 AI 自动优选
+#       - DIRECT
+#     # 关键属性：同样开启全量包含，方便你手动选具体的美国节点
+#     include-all-proxies: true
+#     filter: "(?i)美国|US|United States"
 proxy-groups:
-  # 1. 检测组：负责自动选出可用的美国节点
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # 关键属性：强制包含所有订阅里的节点，不看任何分组名
     include-all-proxies: true
-    # 关键属性：从所有节点中过滤出美国节点
-    filter: "(?i)美国|US|United States"
+    # 更加宽松的过滤条件，只要包含“美国”或“US”就抓取
+    filter: "美国|US|United States|🇺🇸"
 
-  # 2. 入口组：手动选择或自动优选
   - name: 手动节点选择
     type: select
+    include-all-proxies: true
+    filter: "美国|US|United States|🇺🇸"
     proxies:
       - 🤖 AI 自动优选
       - DIRECT
-    # 关键属性：同样开启全量包含，方便你手动选具体的美国节点
-    include-all-proxies: true
-    filter: "(?i)美国|US|United States"
 
 rules:
   # 规则保持不变
