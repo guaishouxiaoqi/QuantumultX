@@ -1,27 +1,36 @@
 name: 常用规则合集
 desc: |
-  Copilot 代理 + 广告拦截
-  版本: v1.0.3
-  更新日期: 2026-1-12
-  说明: 包含 Copilot, apple intelligence访问chatgpt等 强制走代理规则和常见广告拦截规则
-  代理组名称: 手动节点选择
-# 统一代理入口（核心）
+  Copilot 代理 + 自动容灾版
+  版本: v1.0.4
+  更新日期: 2026-01-12
+  说明: 自动筛选美国节点并进行可用性检测，防止切换梯子后节点超时。
+
 proxy-groups:
+  # 入口组：你可以手动选，也可以让它自动选
   - name: 手动节点选择
     type: select
-    # 2. 使用正则语法 (Regex) 自动匹配当前订阅中的策略组名称
     proxies:
-      # - /^(良心云|手动配置|泡泡Dog|Proxy|节点选择|.*Select.*|.*代理.*)$/
+      - 🤖 AI 自动优选  # 默认选中这个，实现自动化
+      - /.*(US|美国|United States).*/ # 同时也展开所有美国节点，方便手动切换
+
+  # 检测组：专门负责剔除超时的美国节点
+  - name: 🤖 AI 自动优选
+    type: url-test
+    # 使用 Google 或 OpenAI 测速，确保节点真正能访问外网
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
       - /.*(US|美国|United States).*/
-# 规则，更具覆写后期扩展
+
 rules:
-  # Copilot
+  # --- Copilot & Bing ---
   - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
   - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
   - DOMAIN-SUFFIX,bing.com,手动节点选择
-  # apple intelligence 访问chatgpt
+  
+  # --- Apple Intelligence & ChatGPT ---
   - DOMAIN-SUFFIX,*.smoot.apple.com,手动节点选择
-  # - DOMAIN-SUFFIX,apple.com,手动节点选择
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,手动节点选择
   - DOMAIN-SUFFIX,cp4.cloudflare.com,手动节点选择
   - DOMAIN-SUFFIX,quzzoni.apple.com,手动节点选择
