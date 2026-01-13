@@ -1,32 +1,33 @@
 name: 常用规则合集
 desc: |
-  Copilot 代理 + 自动容灾版
-  版本: v1.0.5
-  更新日期: 2026-01-13
-  说明: 自动筛选美国节点并进行可用性检测，防止切换梯子后节点超时。
+  Copilot 代理 (全兼容无错版)
+  版本: v1.0.7
+  说明: 使用 include-all-proxies 彻底解决分组找不到的问题。
 
 proxy-groups:
-  # 1. 这是一个“全量美国节点”组
+  # 1. 检测组：负责自动选出可用的美国节点
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # 核心：直接使用正则匹配节点名，不通过 proxies 组过滤
-    # 在 proxies 里直接写正则表达式，Stash 会从所有已加载节点中匹配
-    proxies:
-      - /^(?!.*(剩余流量|套餐到期|到期时间)).*(美国|US|United States)/
+    # 关键属性：强制包含所有订阅里的节点，不看任何分组名
+    include-all-proxies: true
+    # 关键属性：从所有节点中过滤出美国节点
+    filter: "(?i)美国|US|United States"
 
-  # 2. 这是一个入口组
+  # 2. 入口组：手动选择或自动优选
   - name: 手动节点选择
     type: select
     proxies:
       - 🤖 AI 自动优选
       - DIRECT
-      - /^(?!.*(剩余流量|套餐到期|到期时间)).*(美国|US|United States)/
+    # 关键属性：同样开启全量包含，方便你手动选具体的美国节点
+    include-all-proxies: true
+    filter: "(?i)美国|US|United States"
 
 rules:
-  # 将所有 Copilot 和 Apple Intelligence 的规则指向“手动节点选择”
+  # 规则保持不变
   - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
   - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
   - DOMAIN-SUFFIX,bing.com,手动节点选择
