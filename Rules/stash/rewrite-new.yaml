@@ -1,40 +1,37 @@
 name: 常用规则合集
 desc: |
   Copilot 代理 + 自动容灾版
-  版本: v1.0.4
-  更新日期: 2026-01-12
+  版本: v1.0.5
+  更新日期: 2026-01-13
   说明: 自动筛选美国节点并进行可用性检测，防止切换梯子后节点超时。
 
 proxy-groups:
-  # 入口组：手动选择或自动优选
+  # 【第一层】入口组：你在 Stash 界面上操作的组
   - name: 手动节点选择
     type: select
-    # 使用 filter 筛选所有美国节点，并从“所有节点”或“PROXY”组中提取
-    # 这里的正则放在 filter 字段里，proxies 填写你的主策略组名
+    # 作用：从全局节点中过滤出所有美国节点显示在下方，方便你手动点选
     filter: "(?i)美国|US|United States"
     proxies:
-      - 🤖 AI 自动优选
-      - DIRECT
-      # 如果你的订阅里主分组叫“节点选择”或“PROXY”，请确保下方匹配到它
-      - /^(节点选择|良心云|手动配置|泡泡Dog|Proxy|节点选择|代理)$/
+      - 🤖 AI 自动优选  # 优先级 1：自动挑选最快的
+      - DIRECT         # 优先级 2：直连备用
+      - GLOBAL         # 优先级 3：由于有 filter，这里会展开所有美国节点
 
-  # 检测组：剔除超时节点
+  # 【第二层】检测组：负责剔除那些超时的、不可用的美国节点
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
+    # 作用：只让美国节点进入考试名单
     filter: "(?i)美国|US|United States"
     proxies:
-      - /^(节点选择|良心云|手动配置|泡泡Dog|Proxy|节点选择|代理)$/
+      - GLOBAL         # 直接引用系统全局池，绕过所有复杂的策略组命名
 
 rules:
-  # --- Copilot & Bing ---
+  # 将所有 Copilot 和 Apple Intelligence 的规则指向“手动节点选择”
   - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
   - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
   - DOMAIN-SUFFIX,bing.com,手动节点选择
-  
-  # --- Apple Intelligence & ChatGPT ---
   - DOMAIN-SUFFIX,*.smoot.apple.com,手动节点选择
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,手动节点选择
   - DOMAIN-SUFFIX,cp4.cloudflare.com,手动节点选择
