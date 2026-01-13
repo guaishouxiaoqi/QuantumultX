@@ -1,34 +1,32 @@
 name: 常用规则合集
 desc: |
-  Copilot 代理 (全兼容无错版)
+  Copilot 代理 (终极修复版)
   版本: v1.0.9
-  说明: 强制排除过滤器中的 DIRECT，确保只选美国节点。
+  说明: 解决正则不匹配导致的 not found 和 DIRECT 优先问题。
 
 proxy-groups:
-  # 1. 检测组：专门负责从你的机场主组里捞美国节点
+  # 1. 自动化检测组：只测美国节点，且物理屏蔽 DIRECT
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # 核心：精准匹配你那四个机场的主组名，这样绝对不会捞到 DIRECT
-    proxies:
-      - /^(节点选择|良心云|泡泡Dog|Proxy|代理|Select)$/
-    # 进一步筛选这些组里的美国节点
-    filter: "(?i)美国|US|United States|🇺🇸"
+    include-all-proxies: true
+    # 重点：通过 filter 排除 DIRECT 并筛选美国。(?i)忽略大小写，(?!DIRECT)排除直连
+    filter: "(?i)^(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
 
-  # 2. 入口组：继承自动优选的结果
+  # 2. 手动选择组：入口
   - name: 手动节点选择
     type: select
     proxies:
       - 🤖 AI 自动优选
       - DIRECT
-      # 同时在这里也把美国节点平铺出来，方便手动强制指定
-      - /^(节点选择|良心云|泡泡Dog|Proxy|代理|Select)$/
-    filter: "(?i)美国|US|United States|🇺🇸"
+    # 同时也平铺所有美国节点供手动切换
+    include-all-proxies: true
+    filter: "(?i)^(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
 
 rules:
-  # 规则保持不变，确保指向“手动节点选择”
+  # 规则部分保持不变
   - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
   - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
   - DOMAIN-SUFFIX,bing.com,手动节点选择
