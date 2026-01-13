@@ -41,5 +41,3 @@ rules:
   - DOMAIN-SUFFIX,guzzoni.apple.com,Copilot
   - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,Copilot
   - DOMAIN-SUFFIX,gateway.icloud.com,Copilot
-  # 兜底
-  - MATCH,Copilot
