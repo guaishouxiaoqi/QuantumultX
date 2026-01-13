@@ -4,10 +4,10 @@ desc: |
   版本: v1.0.3
   更新日期: 2026-1-12
   说明: 包含 Copilot, apple intelligence访问chatgpt等 强制走代理规则和常见广告拦截规则
-  代理组名称: Copilot
+  代理组名称: 手动节点选择
 # 统一代理入口（核心）
 proxy-groups:
-  - name: Copilot
+  - name: 手动节点选择
     type: select
     # include-all-providers: true
     # filter: '(节点选择|泡泡Dog|良心|手动选择)'   # 正则，只拉手动相关的节点
@@ -25,19 +25,19 @@ proxy-groups:
 # 规则，更具覆写后期扩展
 rules:
   # Copilot
-  - DOMAIN-SUFFIX,copilot.microsoft.com,Copilot
-  - DOMAIN-SUFFIX,edgeservices.bing.com,Copilot
-  - DOMAIN-SUFFIX,bing.com,Copilot
+  - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
+  - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
+  - DOMAIN-SUFFIX,bing.com,手动节点选择
   # apple intelligence 访问chatgpt
-  - DOMAIN-SUFFIX,*.smoot.apple.com,Copilot
-  # - DOMAIN-SUFFIX,apple.com,Copilot
-  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,Copilot
-  - DOMAIN-SUFFIX,cp4.cloudflare.com,Copilot
-  - DOMAIN-SUFFIX,quzzoni.apple.com,Copilot
-  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,Copilot
-  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,Copilot
-  - DOMAIN-SUFFIX,apple-relay.apple.com,Copilot
-  - DOMAIN-SUFFIX,smoot.apple.com,Copilot
-  - DOMAIN-SUFFIX,guzzoni.apple.com,Copilot
-  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,Copilot
-  - DOMAIN-SUFFIX,gateway.icloud.com,Copilot
+  - DOMAIN-SUFFIX,*.smoot.apple.com,手动节点选择
+  # - DOMAIN-SUFFIX,apple.com,手动节点选择
+  - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,手动节点选择
+  - DOMAIN-SUFFIX,cp4.cloudflare.com,手动节点选择
+  - DOMAIN-SUFFIX,quzzoni.apple.com,手动节点选择
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,手动节点选择
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,手动节点选择
+  - DOMAIN-SUFFIX,apple-relay.apple.com,手动节点选择
+  - DOMAIN-SUFFIX,smoot.apple.com,手动节点选择
+  - DOMAIN-SUFFIX,guzzoni.apple.com,手动节点选择
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,手动节点选择
+  - DOMAIN-SUFFIX,gateway.icloud.com,手动节点选择
