@@ -1,50 +1,32 @@
 name: 常用规则合集
 desc: |
   Copilot 代理 (全兼容无错版)
-  版本: v1.0.7
-  说明: 使用 include-all-proxies 彻底解决分组找不到的问题。
+  版本: v1.0.8
+  说明: 强制排除过滤器中的 DIRECT，确保只选美国节点。
 
-# proxy-groups:
-#   # 1. 检测组：负责自动选出可用的美国节点
-#   - name: 🤖 AI 自动优选
-#     type: url-test
-#     url: http://www.gstatic.com/generate_204
-#     interval: 300
-#     tolerance: 50
-#     # 关键属性：强制包含所有订阅里的节点，不看任何分组名
-#     include-all-proxies: true
-#     # 关键属性：从所有节点中过滤出美国节点
-#     filter: "(?i)美国|US|United States"
-
-#   # 2. 入口组：手动选择或自动优选
-#   - name: 手动节点选择
-#     type: select
-#     proxies:
-#       - 🤖 AI 自动优选
-#       - DIRECT
-#     # 关键属性：同样开启全量包含，方便你手动选具体的美国节点
-#     include-all-proxies: true
-#     filter: "(?i)美国|US|United States"
 proxy-groups:
+  # 1. 检测组：强制剔除 DIRECT，只保留美国节点进行测速
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     include-all-proxies: true
-    # 更加宽松的过滤条件，只要包含“美国”或“US”就抓取
-    filter: "美国|US|United States|🇺🇸"
+    # 逻辑：匹配包含 美国/US/🇺🇸 的节点，但排除名字叫 DIRECT 的项
+    filter: "^(?i)(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
 
+  # 2. 入口组：你可以看到自动优选的结果，也可以手动选
   - name: 手动节点选择
     type: select
     include-all-proxies: true
-    filter: "美国|US|United States|🇺🇸"
+    # 这里的 filter 建议只留美国节点，让界面干净
+    filter: "^(?i)(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
     proxies:
       - 🤖 AI 自动优选
-      - DIRECT
+      - DIRECT # 这里手动加一个 DIRECT，方便你真的想关闭 AI 代理时使用
 
 rules:
-  # 规则保持不变
+  # 规则保持不变，确保指向“手动节点选择”
   - DOMAIN-SUFFIX,copilot.microsoft.com,手动节点选择
   - DOMAIN-SUFFIX,edgeservices.bing.com,手动节点选择
   - DOMAIN-SUFFIX,bing.com,手动节点选择
