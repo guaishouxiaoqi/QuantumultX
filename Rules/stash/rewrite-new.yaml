@@ -9,19 +9,9 @@ desc: |
 proxy-groups:
   - name: 手动节点选择
     type: select
-    # include-all-providers: true
-    # filter: '(节点选择|泡泡Dog|良心|手动选择)'   # 正则，只拉手动相关的节点
-    # proxies:
-    #   - DIRECT   # ← 如果 filter 没匹配到任何节点，至少有 DIRECT 兜底，不会空
-    # 或更松：filter: '.*'  # 拉所有，但不推荐（会变成全节点组）
-    # proxies中列举的是组需要完全匹配
-    # proxies:
-    # use中列举的是组名称，只要比配到就行，无需全部匹配
-    use:
-      # 常见机场默认组
-      - 节点选择
-      - 泡泡Dog
-      - 良心云
+    # 2. 使用正则语法 (Regex) 自动匹配当前订阅中的策略组名称
+    proxies:
+      - /^(良心云|手动配置|泡泡Dog|Proxy|节点选择|.*Select.*|.*代理.*)$/
 # 规则，更具覆写后期扩展
 rules:
   # Copilot
