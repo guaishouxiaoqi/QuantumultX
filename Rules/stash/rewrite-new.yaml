@@ -24,5 +24,18 @@ rule-sets:
       - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
       - DOMAIN-SUFFIX,gateway.icloud.com
 
+proxy-groups:
+  - name: AIProxy
+    type: select
+    include-all: true  # 关键：自动包含当前配置文件的所有 proxies（节点）
+
 rules:
-  - RULE-SET,AI-Force-Proxy,"^(?i).*(节点|选择|手动|切换|dog|狗|proxy|主|auto|select|manual|良心|优质|高速|主力).*"
+  - RULE-SET,AI-Force-Proxy,AIProxy
+
+# rules:
+#   - RULE-SET,AI-Force-Proxy,节点选择
+#   - RULE-SET,AI-Force-Proxy,手动切换
+#   - RULE-SET,AI-Force-Proxy,泡泡Dog
+#   - RULE-SET,AI-Force-Proxy,良心云
+# rules:
+#   - RULE-SET,AI-Force-Proxy,"^(?i).*(节点|选择|手动|切换|dog|狗|proxy|主|auto|select|manual|良心|优质|高速|主力).*"
