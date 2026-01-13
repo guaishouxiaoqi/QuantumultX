@@ -1,29 +1,31 @@
 name: 常用规则合集
 desc: |
   Copilot 代理 (全兼容无错版)
-  版本: v1.0.8
+  版本: v1.0.9
   说明: 强制排除过滤器中的 DIRECT，确保只选美国节点。
 
 proxy-groups:
-  # 1. 检测组：强制剔除 DIRECT，只保留美国节点进行测速
+  # 1. 检测组：专门负责从你的机场主组里捞美国节点
   - name: 🤖 AI 自动优选
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    include-all-proxies: true
-    # 逻辑：匹配包含 美国/US/🇺🇸 的节点，但排除名字叫 DIRECT 的项
-    filter: "^(?i)(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
+    # 核心：精准匹配你那四个机场的主组名，这样绝对不会捞到 DIRECT
+    proxies:
+      - /^(节点选择|良心云|泡泡Dog|Proxy|代理|Select)$/
+    # 进一步筛选这些组里的美国节点
+    filter: "(?i)美国|US|United States|🇺🇸"
 
-  # 2. 入口组：你可以看到自动优选的结果，也可以手动选
+  # 2. 入口组：继承自动优选的结果
   - name: 手动节点选择
     type: select
-    include-all-proxies: true
-    # 这里的 filter 建议只留美国节点，让界面干净
-    filter: "^(?i)(?!.*DIRECT).*(美国|US|United States|🇺🇸).*"
     proxies:
       - 🤖 AI 自动优选
-      - DIRECT # 这里手动加一个 DIRECT，方便你真的想关闭 AI 代理时使用
+      - DIRECT
+      # 同时在这里也把美国节点平铺出来，方便手动强制指定
+      - /^(节点选择|良心云|泡泡Dog|Proxy|代理|Select)$/
+    filter: "(?i)美国|US|United States|🇺🇸"
 
 rules:
   # 规则保持不变，确保指向“手动节点选择”
