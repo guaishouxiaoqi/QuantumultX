@@ -11,7 +11,7 @@ proxy-groups:
     type: select
     proxies:
       - 🤖 AI 自动优选  # 默认选中这个，实现自动化
-      - /.*(US|美国|United States).*/ # 同时也展开所有美国节点，方便手动切换
+      - /.*(美国|US|United States).*/ # 同时也展开所有美国节点，方便手动切换
 
   # 检测组：专门负责剔除超时的美国节点
   - name: 🤖 AI 自动优选
@@ -21,7 +21,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - /.*(US|美国|United States).*/
+      - /.*(美国|US|United States).*/
 
 rules:
   # --- Copilot & Bing ---
