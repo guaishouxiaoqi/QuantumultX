@@ -13,6 +13,7 @@ rules:
   - DOMAIN-SUFFIX,bing.com,节点选择
   # apple intelligence
   - DOMAIN-SUFFIX,*.smoot.apple.com,节点选择
+  # - DOMAIN-SUFFIX,apple.com,节点选择
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,节点选择
   - DOMAIN-SUFFIX,cp4.cloudflare.com,节点选择
   - DOMAIN-SUFFIX,quzzoni.apple.com,节点选择
@@ -31,6 +32,7 @@ rules:
   - DOMAIN-SUFFIX,bing.com,良心云
   # apple intelligence
   - DOMAIN-SUFFIX,*.smoot.apple.com,良心云
+  # - DOMAIN-SUFFIX,apple.com,良心云
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,良心云
   - DOMAIN-SUFFIX,cp4.cloudflare.com,良心云
   - DOMAIN-SUFFIX,quzzoni.apple.com,良心云
@@ -49,6 +51,7 @@ rules:
   - DOMAIN-SUFFIX,bing.com,泡泡Dog
   # apple intelligence
   - DOMAIN-SUFFIX,*.smoot.apple.com,泡泡Dog
+  # - DOMAIN-SUFFIX,apple.com,泡泡Dog
   - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,泡泡Dog
   - DOMAIN-SUFFIX,cp4.cloudflare.com,泡泡Dog
   - DOMAIN-SUFFIX,quzzoni.apple.com,泡泡Dog
