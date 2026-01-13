@@ -21,9 +21,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      # 第一优先级：名字里同时包含“美国”和“GPT”的节点
-      - /.*(美国|US).*(GPT|AI).*/
-      # 第二优先级：普通的美国节点
       - /.*(US|美国|United States).*/
 
 rules:
