@@ -11,7 +11,8 @@ proxy-groups:
     type: select
     # 2. 使用正则语法 (Regex) 自动匹配当前订阅中的策略组名称
     proxies:
-      - /^(良心云|手动配置|泡泡Dog|Proxy|节点选择|.*Select.*|.*代理.*)$/
+      # - /^(良心云|手动配置|泡泡Dog|Proxy|节点选择|.*Select.*|.*代理.*)$/
+      - /.*(US|美国|United States).*/
 # 规则，更具覆写后期扩展
 rules:
   # Copilot
