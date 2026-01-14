@@ -1,0 +1,27 @@
+name: 常用规则合集
+desc: |
+  测试
+
+# 定义一个通用的策略组，自动包含订阅中的所有代理节点
+proxy-groups:
+  - name: "🚀 通用代理"
+    type: select
+    filter: ".*"
+
+rules:
+  # # ==================== Copilot ====================
+  # - DOMAIN-SUFFIX,copilot.microsoft.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,edgeservices.bing.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,bing.com,🚀 通用代理
+  
+  # # ==================== Apple Intelligence ====================
+  # - DOMAIN-SUFFIX,smoot.apple.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,cp4.cloudflare.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,quzzoni.apple.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,guzzoni.apple.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,apple-relay.cloudflare.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,apple-relay.apple.com,🚀 通用代理
+  # - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,🚀 通用代理
+  # - DOMAIN-SUFFIX,gateway.icloud.com,🚀 通用代理
