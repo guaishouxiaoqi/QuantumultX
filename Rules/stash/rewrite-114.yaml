@@ -2,13 +2,12 @@ name: 常用规则合集
 desc: |
   测试
 
-# 定义一个通用的策略组，引用主配置中的策略组
+# 定义通用策略组，包含所有订阅中的节点
 proxy-groups:
   - name: "🚀 通用代理"
     type: select
+    include-all-providers: true
     proxies:
-      - 节点选择    # 梯子A的主策略组
-      - 泡泡Dog     # 梯子B的主策略组
       - DIRECT
 
 rules:
