@@ -2,14 +2,17 @@ name: 常用规则合集
 desc: |
   测试
 
-# 定义一个通用的策略组，自动包含订阅中的所有代理节点
+# 定义一个通用的策略组，引用主配置中的策略组
 proxy-groups:
   - name: "🚀 通用代理"
     type: select
-    filter: ".*"
+    proxies:
+      - 节点选择    # 梯子A的主策略组
+      - 泡泡Dog     # 梯子B的主策略组
+      - DIRECT
 
 rules:
-  # # ==================== Copilot ====================
+  # ==================== Copilot ====================
   # - DOMAIN-SUFFIX,copilot.microsoft.com,🚀 通用代理
   # - DOMAIN-SUFFIX,edgeservices.bing.com,🚀 通用代理
   # - DOMAIN-SUFFIX,bing.com,🚀 通用代理
