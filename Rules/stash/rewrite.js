@@ -6,27 +6,30 @@
 if ($type === "config") {
   let config = JSON.parse($files[0]);
 
-  // --- 1. 自动寻找代理策略组名称 ---
-  // 按照优先级寻找：泡泡Dog > PROXY > 节点选择 > 手动选择 > 第一个策略组
+  // --- 1. 自动寻找代理策略组 ---
   const groupRegex = /(泡泡Dog|PROXY|节点选择|手动选择|良心云|Proxy|Traffic)/i;
   let targetGroup = config["proxy-groups"].find(g => groupRegex.test(g.name));
+  const proxyName = targetGroup ? targetGroup.name : (config["proxy-groups"][0] ? config["proxy-groups"][0].name : "DIRECT");
 
-  // 兜底方案：如果都没找到，取第一个组名
-  const proxyName = targetGroup ? targetGroup.name : config["proxy-groups"][0].name;
+  // --- 2. 清理干扰规则 ---
+  // 如果主配置里已经有了关于 js.design 的规则，先删掉它，防止重复或冲突
+  if (config.rules) {
+    config.rules = config.rules.filter(r => !r.includes("js.design") && !r.includes("jsdesign"));
+  } else {
+    config.rules = [];
+  }
 
-  // --- 2. 定义你的规则模板 ---
-  // 这里将原来的 "节点选择" 替换为动态获取的 ${proxyName}
-  const myCustomRules = [
-    // js.design 直连
+  // --- 3. 定义规则阵列 ---
+  // 将 DIRECT 规则放在最前面，且确保 MATCH 放在最后
+  const directRules = [
     "DOMAIN-SUFFIX,js.design,DIRECT",
-    "DOMAIN-KEYWORD,jsdesign,DIRECT",
+    "DOMAIN-KEYWORD,jsdesign,DIRECT"
+  ];
 
-    // Copilot
+  const proxyRules = [
     `DOMAIN-SUFFIX,copilot.microsoft.com,${proxyName}`,
     `DOMAIN-SUFFIX,edgeservices.bing.com,${proxyName}`,
     `DOMAIN-SUFFIX,bing.com,${proxyName}`,
-
-    // Apple Intelligence
     `DOMAIN-SUFFIX,smoot.apple.com,${proxyName}`,
     `DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,${proxyName}`,
     `DOMAIN-SUFFIX,cp4.cloudflare.com,${proxyName}`,
@@ -39,10 +42,13 @@ if ($type === "config") {
     `DOMAIN-SUFFIX,gateway.icloud.com,${proxyName}`
   ];
 
-  // --- 3. 插入规则 ---
-  // 将自定义规则插入到所有规则的最前面
-  if (!config.rules) config.rules = [];
-  config.rules = [...myCustomRules, ...config.rules];
+  // --- 4. 重新组合规则 ---
+  // 顺序：直连规则 > 代理规则 > 原配置规则
+  config.rules = [...directRules, ...proxyRules, ...config.rules];
+
+  // 强制处理 MATCH 规则（如果有重复的 MATCH，保留我们定义的代理组 MATCH）
+  config.rules = config.rules.filter(r => !r.startsWith("MATCH,"));
+  config.rules.push(`MATCH,${proxyName}`);
 
   $done(config);
 } else {
