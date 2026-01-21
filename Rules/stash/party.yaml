@@ -1,0 +1,8 @@
+name: 常用规则合集
+desc: |
+  DIRECT
+  版本: v1.0.0
+  更新日期: 2026-1-22
+
+rules:
+  - DOMAIN-SUFFIX,js.design,DIRECT
