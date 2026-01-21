@@ -24,5 +24,3 @@ rules:
   - DOMAIN-SUFFIX,guzzoni.apple.com,节点选择
   - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,节点选择
   - DOMAIN-SUFFIX,gateway.icloud.com,节点选择
-
-  - DOMAIN-SUFFIX,js.design,DIRECT
